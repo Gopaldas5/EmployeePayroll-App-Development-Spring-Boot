@@ -25,11 +25,6 @@ public class EmployeePayrollService implements IEmployeePayrollService {
         return employeePayrollRepo.findAll();
     }
 
-//    @Override
-//    public EmployeePayrollData updateById(int id) {
-//       return employeePayrollRepo.updateBy();
-//    }
-
     public Integer deleteEmployeeID(int id) {
         employeePayrollRepo.deleteById(id);
         return id;
