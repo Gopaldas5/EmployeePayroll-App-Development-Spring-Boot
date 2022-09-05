@@ -47,42 +47,4 @@ public class EmployeePayrollService implements IEmployeePayrollService {
 
     public void deleteEmployeePayrollData(int id) {
         employeePayrollList.remove(id - 1);
-
-    }
-//    @Override
-//    public ResponseDTO addEmployee(EmployeePayrollDTO employeeDTO) {
-//        EmployeePayrollData employeePayrollDataObj = new EmployeePayrollData();
-//        employeePayrollDataObj = employeePayrollRepo.save(employeePayrollDataObj);
-//        if (employeePayrollDataObj != null) {
-//            return new ResponseDTO("successfully inserted !!!!");
-//        } else {
-//            return new ResponseDTO("not success");
-//        }
-//    }
-////    public ResponseDTO addEmployee(EmployeePayrollDTO employeePayrollDTO){
-////        EmployeePayrollData employeePayrollDataObj = new EmployeePayrollData(employeePayrollDTO);
-//////        String msg = "Hello" + " " +employeePayrollDTO.getName();
-////        return employeePayrollDTO.save(employeePayrollDataObj);
-////    }
-//
-//    @Override
-//    public List<EmployeePayrollData> getEmployeeList() {
-//        return employeePayrollRepo.findAll();
-//    }
-//
-//    @Override
-//    public ResponseDTO deleteEmployee(int id) {
-//        employeePayrollRepo.deleteById(id);
-//        return new ResponseDTO("Deleted successfully",);
-//    }
-//
-//    @Override
-//    public Optional<EmployeePayrollData> findEmployee(int id) {
-//        return employeePayrollRepo.findById(id);
-//    }
-//    @Override
-//    public EmployeePayrollData updateEmployeeData(int employeeId, EmployeePayrollDTO employeePayrollDTO) {
-//        Optional<EmployeePayrollData> employeePayrollData= employeePayrollRepo.findById(employeeId);
-//        return employeePayrollRepo.save(new EmployeePayrollData());
-//    }
 }
