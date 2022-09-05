@@ -8,13 +8,5 @@ import java.util.Optional;
 
 public interface IEmployeePayrollService {
 
-     EmployeePayrollData addEmployee(EmployeePayrollDTO greetingDTO);
 
-    Optional<EmployeePayrollData> findEmployeeID(int id);
-
-    Integer deleteEmployeeID(int id);
-
-    List<EmployeePayrollData> findAllEmployees();
-
-//   EmployeePayrollData updateById(int id);
 }
