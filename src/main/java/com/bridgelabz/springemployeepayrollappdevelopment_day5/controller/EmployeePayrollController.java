@@ -58,23 +58,4 @@ public class EmployeePayrollController {
         ResponseDTO responseDTO = new ResponseDTO("Delete employee payroll data successfully", +id);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.CREATED);
     }
-//    @PostMapping("/post")
-//    public ResponseEntity<ResponseDTO> addEmployee( @Valid @RequestBody EmployeePayrollDTO employeePayrollDTO) {
-//        return new ResponseEntity(iEmployeePayrollService.addEmployee(employeePayrollDTO), HttpStatus.CREATED);
-//    }
-//
-//    @GetMapping(value = "/get/{id}")
-//    public ResponseEntity<EmployeePayrollData> findEmployee(@PathVariable int id) {
-//        return new ResponseEntity<>(iEmployeePayrollService.findEmployee(id,), HttpStatus.CREATED);
-//    }
-//
-//    @DeleteMapping(value = "/delete/{id}")
-//    public ResponseEntity<ResponseDTO> deleteEmployee(@PathVariable int id) {
-//        return new ResponseEntity<ResponseDTO>(iEmployeePayrollService.deleteEmployee(id), HttpStatus.CREATED);
-//    }
-//
-//    @PutMapping(value = "/update/{id}")
-//    public ResponseEntity<EmployeePayrollData> updateEmployee(@RequestBody EmployeePayrollDTO employeePayrollDTO, @PathVariable int id) {
-//        return new ResponseEntity<>(iEmployeePayrollService.updateEmployeeData(id, employeePayrollDTO), HttpStatus.CREATED);
-//    }
 }
