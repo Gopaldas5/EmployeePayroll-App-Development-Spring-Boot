@@ -13,24 +13,27 @@ public class EmployeePayrollData {
     @Column(name = "user_id", nullable = false)
 
     public int id;
-    public String name;
+    public String firstName;
+    public String lastName;
     public String profilePic;
     public String gender;
     public int salary;
     public LocalDate startDate;
     public String notes;
 
-    public EmployeePayrollData(int i, EmployeePayrollDTO employeePayrollDTO) {
-        this.name = employeePayrollDTO.getName();
+    public EmployeePayrollData(EmployeePayrollDTO employeePayrollDTO) {
+        this.firstName = employeePayrollDTO.getFirstName();
+        this.lastName = employeePayrollDTO.getLastname();
         this.gender = employeePayrollDTO.getGender();
         this.salary = employeePayrollDTO.getSalary();
 
     }
 
-    public EmployeePayrollData(int id, String name, String profilePic, String gender,
+    public EmployeePayrollData(int id, String firstName, String lastName, String profilePic, String gender,
                                int salary, LocalDate startDate, String notes) {
         this.id = id;
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.profilePic = profilePic;
         this.gender = gender;
         this.salary = salary;
@@ -50,12 +53,20 @@ public class EmployeePayrollData {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getProfilePic() {
@@ -102,7 +113,8 @@ public class EmployeePayrollData {
     public String toString() {
         return "EmployeePayrollData{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", profilePic='" + profilePic + '\'' +
                 ", gender='" + gender + '\'' +
                 ", salary=" + salary +

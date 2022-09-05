@@ -14,7 +14,8 @@ import java.time.LocalDate;
 public class EmployeePayrollDTO {
 
     @Pattern(regexp = "^[A-Z][a-zA-Z]{2,}$",message = "Not a valid Name : It should at least 3 characters  ")
-    public String name;
+    public String firstName;
+    public String lastname;
     public String gender;
     public int salary;
 
