@@ -3,7 +3,6 @@ package com.bridgelabz.springemployeepayrollappdevelopment_day5.controller;
 import com.bridgelabz.springemployeepayrollappdevelopment_day5.dto.EmployeePayrollDTO;
 import com.bridgelabz.springemployeepayrollappdevelopment_day5.dto.ResponseDTO;
 import com.bridgelabz.springemployeepayrollappdevelopment_day5.model.EmployeePayrollData;
-import com.bridgelabz.springemployeepayrollappdevelopment_day5.services.EmployeePayrollService;
 import com.bridgelabz.springemployeepayrollappdevelopment_day5.services.IEmployeePayrollService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,8 +15,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/employee")
 public class EmployeePayrollController {
-  @Autowired
-  IEmployeePayrollService iEmployeePayrollService;
+    @Autowired
+    IEmployeePayrollService iEmployeePayrollService;
 
 
     @GetMapping(value = {"", "/", "/get"})
@@ -25,20 +24,21 @@ public class EmployeePayrollController {
         ResponseDTO responseDTO = new ResponseDTO("Get call successful", iEmployeePayrollService);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.CREATED);
     }
+
     @PostMapping("/add")
     public ResponseEntity<ResponseDTO> addEmployeePayrollData(@Valid @RequestBody EmployeePayrollDTO employeePayrollDTO) {
         ResponseDTO responseDTO = new ResponseDTO("Add employee payroll data successfully", iEmployeePayrollService.addEmployee(employeePayrollDTO));
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.CREATED);
     }
 
-
     @GetMapping("/findEmployee/{id}")
     public ResponseEntity<ResponseDTO> findEmployeePayrollData(@PathVariable int id) {
         ResponseDTO responseDTO = new ResponseDTO("find employee Id successful", iEmployeePayrollService.findEmployeeID(id));
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
+
     @GetMapping("/findAllEmployees")
-    public List<EmployeePayrollData> findingAllEmployees(){
+    public List<EmployeePayrollData> findingAllEmployees() {
         return iEmployeePayrollService.findAllEmployees();
     }
 //    @PutMapping("/update/{id}")
