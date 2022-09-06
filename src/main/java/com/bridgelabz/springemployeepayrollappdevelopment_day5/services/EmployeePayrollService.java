@@ -14,14 +14,17 @@ public class EmployeePayrollService implements IEmployeePayrollService {
 
     @Autowired
     EmployeePayrollRepo employeePayrollRepo;
-    public EmployeePayrollData addEmployee(EmployeePayrollDTO employeePayrollDTO){
+
+    public EmployeePayrollData addEmployee(EmployeePayrollDTO employeePayrollDTO) {
         EmployeePayrollData employeePayrollDataObj = new EmployeePayrollData(employeePayrollDTO);
         return employeePayrollRepo.save(employeePayrollDataObj);
     }
-    public Optional<EmployeePayrollData> findEmployeeID(int id){
+
+    public Optional<EmployeePayrollData> findEmployeeID(int id) {
         return employeePayrollRepo.findById(id);
     }
-    public List<EmployeePayrollData> findAllEmployees(){
+
+    public List<EmployeePayrollData> findAllEmployees() {
         return employeePayrollRepo.findAll();
     }
 
