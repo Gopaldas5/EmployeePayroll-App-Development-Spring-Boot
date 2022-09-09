@@ -13,6 +13,11 @@ public interface IEmployeePayrollService {
 
     Optional<EmployeePayrollData> findEmployeeID(int id);
 
-    List<EmployeePayrollData> findAllEmployees();
+    List<EmployeePayrollData> findAllEmployees();  
+ 
+    EmployeePayrollData updateEmployeeById(int id, EmployeePayrollDTO employeePayrollDTO);
+
+    Integer deleteEmployeeById(int id);
+
 
 }
