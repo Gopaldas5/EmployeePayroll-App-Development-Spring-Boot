@@ -5,14 +5,13 @@ import com.bridgelabz.springemployeepayrollappdevelopment_day5.dto.EmployeePayro
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Table
 public class EmployeePayrollData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id", nullable = false)
-
     public int id;
     public String firstName;
     public String lastName;
@@ -22,16 +21,24 @@ public class EmployeePayrollData {
     public LocalDate startDate;
     public String notes;
 
+    @ElementCollection
+    @CollectionTable(name = "employee_departments", joinColumns = @JoinColumn(name = "employee_id"))
+    public List<String> departments;
+
     public EmployeePayrollData(EmployeePayrollDTO employeePayrollDTO) {
         this.firstName = employeePayrollDTO.getFirstName();
         this.lastName = employeePayrollDTO.getLastname();
         this.gender = employeePayrollDTO.getGender();
         this.salary = employeePayrollDTO.getSalary();
+        this.departments = employeePayrollDTO.getDepartments();
+
+    }
+    public EmployeePayrollData() {
 
     }
 
     public EmployeePayrollData(int id, String firstName, String lastName, String profilePic, String gender,
-                               int salary, LocalDate startDate, String notes) {
+                               int salary, LocalDate startDate, String notes, List<String> departments) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -40,10 +47,7 @@ public class EmployeePayrollData {
         this.salary = salary;
         this.startDate = startDate;
         this.notes = notes;
-    }
-
-    public EmployeePayrollData() {
-
+        this.departments = departments;
     }
 
     public int getId() {
@@ -110,6 +114,14 @@ public class EmployeePayrollData {
         this.notes = notes;
     }
 
+    public List<String> getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(List<String> departments) {
+        this.departments = departments;
+    }
+
     @Override
     public String toString() {
         return "EmployeePayrollData{" +
@@ -121,6 +133,7 @@ public class EmployeePayrollData {
                 ", salary=" + salary +
                 ", startDate=" + startDate +
                 ", notes='" + notes + '\'' +
+                ", departments=" + departments +
                 '}';
     }
 }
