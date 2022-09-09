@@ -9,15 +9,10 @@ import java.util.Optional;
 
 public interface IEmployeePayrollService {
 
-     EmployeePayrollData addEmployee(EmployeePayrollDTO greetingDTO);
+ EmployeePayrollData addEmployee(EmployeePayrollDTO greetingDTO);
 
     Optional<EmployeePayrollData> findEmployeeID(int id);
 
     List<EmployeePayrollData> findAllEmployees();
-
-    EmployeePayrollData updateEmployeeById(int id, EmployeePayrollDTO employeePayrollDTO);
-
-    Integer deleteEmployeeById(int id);
-
 
 }
