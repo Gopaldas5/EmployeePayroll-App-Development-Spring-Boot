@@ -4,9 +4,12 @@ import com.bridgelabz.springemployeepayrollappdevelopment_day5.dto.EmployeePayro
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.time.LocalDate;
 import java.util.List;
 
+
+// Creating an entity EmployeePayrollData
 @Entity
 public class EmployeePayrollData {
     @Id
@@ -15,6 +18,8 @@ public class EmployeePayrollData {
     public int id;
     public String firstName;
     public String lastName;
+    @Email
+    public String email;
     public String profilePic;
     public String gender;
     public int salary;
@@ -28,6 +33,7 @@ public class EmployeePayrollData {
     public EmployeePayrollData(EmployeePayrollDTO employeePayrollDTO) {
         this.firstName = employeePayrollDTO.getFirstName();
         this.lastName = employeePayrollDTO.getLastname();
+        this.email = employeePayrollDTO.getEmail();
         this.gender = employeePayrollDTO.getGender();
         this.salary = employeePayrollDTO.getSalary();
         this.departments = employeePayrollDTO.getDepartments();
@@ -36,12 +42,14 @@ public class EmployeePayrollData {
     public EmployeePayrollData() {
 
     }
+    // Parameterized Constructor to assign the values to the properties of the entity
 
-    public EmployeePayrollData(int id, String firstName, String lastName, String profilePic, String gender,
+    public EmployeePayrollData(int id, String firstName, String lastName,String email, String profilePic, String gender,
                                int salary, LocalDate startDate, String notes, List<String> departments) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
         this.profilePic = profilePic;
         this.gender = gender;
         this.salary = salary;
@@ -50,6 +58,7 @@ public class EmployeePayrollData {
         this.departments = departments;
     }
 
+   // Getters and setters of the properties
     public int getId() {
         return id;
     }
@@ -72,6 +81,14 @@ public class EmployeePayrollData {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getProfilePic() {
@@ -122,12 +139,14 @@ public class EmployeePayrollData {
         this.departments = departments;
     }
 
+    // Overriding the toString method to find all the values
     @Override
     public String toString() {
         return "EmployeePayrollData{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
                 ", profilePic='" + profilePic + '\'' +
                 ", gender='" + gender + '\'' +
                 ", salary=" + salary +
