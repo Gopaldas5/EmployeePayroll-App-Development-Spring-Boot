@@ -43,10 +43,9 @@ public class EmployeePayrollService implements IEmployeePayrollService {
             throw new CustomException("Employee data is empty");
         }
     }
-
-    @Override
+     @Override
     public EmployeePayrollData updateEmployeeById(int id, EmployeePayrollDTO employeePayrollDTO) {
-        if (employeePayrollRepo.findById(id).isPresent()) {
+
             EmployeePayrollData employeePayrollDataObj = employeePayrollRepo.findById(id).get();
             System.out.println(employeePayrollDataObj);
             employeePayrollDataObj.setFirstName(employeePayrollDTO.getFirstName());
@@ -54,10 +53,7 @@ public class EmployeePayrollService implements IEmployeePayrollService {
             employeePayrollDataObj.setSalary(employeePayrollDTO.getSalary());
             employeePayrollRepo.save(employeePayrollDataObj);
             return ResponseEntity.ok(employeePayrollDataObj).getBody();
-        } else {
-            throw new CustomException("Employee id not found, Insert correct id");
-        }
-    }
+
 
     public EmployeePayrollData addEmployeeEmail(EmployeePayrollDTO employeePayrollDTO) {
         EmployeePayrollData employeePayrollData = new EmployeePayrollData(employeePayrollDTO);
