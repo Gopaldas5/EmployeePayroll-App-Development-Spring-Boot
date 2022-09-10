@@ -19,5 +19,5 @@ public interface IEmployeePayrollService {
 
     Integer deleteEmployeeById(int id);
 
-
+    EmployeePayrollData addEmployeeEmail(EmployeePayrollDTO employeePayrollDTO);
 }
